@@ -14,5 +14,9 @@ public class SetExample {
         s.add(2);
 
         System.out.println(s);
+
+        for(int a:s){
+            System.out.println(a);
+        }
     }
 }

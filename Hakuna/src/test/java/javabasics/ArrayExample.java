@@ -7,6 +7,10 @@ public class ArrayExample {
         int [] numbers = {45,78,90,100}; //0,1,2,3 //lenght - 4
         String [] name = {"apple","learnmore"} ; //0,1
 
+        for(String h:name){
+            System.out.println(h);
+        }
+
         for(int a = name.length;  a > name.length ; a--){
 
             System.out.println(name[a]);

@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/featurefile"},
         glue = {"stepdefinationfile"},
-        tags = "@amazon01",
+        tags = "@BS01",
         plugin = {"pretty",
                 "html:target/report/cucumberreport.html",
                 "junit:target/report/junitreport.xml",

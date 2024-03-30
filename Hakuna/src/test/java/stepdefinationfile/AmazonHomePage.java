@@ -18,6 +18,8 @@ import resuable.ReadExcel;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AmazonHomePage extends BaseCode {
 
@@ -70,11 +72,26 @@ public class AmazonHomePage extends BaseCode {
     public void userExtractTheDropdownvalues() {
       int currecySize =  driver.findElements(By.xpath("//select[@id='ControlGroupSearchView_AvailabilitySearchInputSearchView_DropDownListCurrency']/child::option")).size();
 
+      List<String> dropdownValues = new ArrayList<String>(); //empty list
+
         for(int i =0 ;i<currecySize;i++){
 
           String currencyValues=  driver.findElements(By.xpath("//select[@id='ControlGroupSearchView_AvailabilitySearchInputSearchView_DropDownListCurrency']/child::option")).get(i).getText();
-            System.out.println(currencyValues);
+          dropdownValues.add(currencyValues);
         }
+      //  Assert.assertEquals("CAD",dropdownValues.get(2));
+        System.out.println(dropdownValues);
+
+        boolean flag = false;
+
+        for(String a:dropdownValues){
+
+            if(a.equals("AMD")){
+                flag = true;
+            }
+        }
+
+        Assert.assertTrue(flag);
     }
 
     @When("user extract the column Values")
