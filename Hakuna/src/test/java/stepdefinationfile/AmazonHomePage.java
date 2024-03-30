@@ -1,5 +1,6 @@
 package stepdefinationfile;
 
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,7 +38,18 @@ public class AmazonHomePage extends BaseCode {
       String actualTitle =  driver.getTitle();  //Actual Result
       String expectedTitle = "Amazon.in - iphone";
 
+        if(actualTitle.equals(expectedTitle)){
+
+         Assert.assertTrue(true);
+
+        }
+        else{
+            Assert.assertTrue(false);
+
+        }
+
         Assert.assertEquals(expectedTitle,actualTitle);
+
     }
 
     @When("user enter the username {string} and password {string}")
