@@ -3,6 +3,7 @@ package stepdefinationfile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -33,9 +34,10 @@ public class AmazonHomePage extends BaseCode {
 
     @Then("user validate the title")
     public void userValidateTheTitle() {
-      String pageTitle =  driver.getTitle();
-      driver.findElement(By.id("abxv"));
-        System.out.println(pageTitle);
+      String actualTitle =  driver.getTitle();  //Actual Result
+      String expectedTitle = "Amazon.in - iphone";
+
+        Assert.assertEquals(expectedTitle,actualTitle);
     }
 
     @When("user enter the username {string} and password {string}")
