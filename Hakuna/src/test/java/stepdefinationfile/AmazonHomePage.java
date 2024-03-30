@@ -92,6 +92,17 @@ public class AmazonHomePage extends BaseCode {
         }
 
         Assert.assertTrue(flag);
+
+       boolean returnDate = driver.findElement(By.id("custom_date_picker_id_2")).isEnabled();
+
+       Assert.assertFalse(returnDate);
+
+      boolean h= driver.findElement(By.id("ControlGroupSearchView_AvailabilitySearchInputSearchView_OneWay")).isSelected();
+
+      driver.switchTo().alert().sendKeys("aravinth");
+      driver.switchTo().alert().accept();
+      Assert.assertEquals("message",driver.switchTo().alert().getText());
+
     }
 
     @When("user extract the column Values")
