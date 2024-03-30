@@ -30,9 +30,11 @@ public class ListExample {
         System.out.println(l2);
         l2.add(1,"xyz");
 
-        System.out.println(l2);
+        for(String f:l2){
+            System.out.println(f);
+        }
 
-        System.out.println(l2.get(1));
+
 
     }
 }

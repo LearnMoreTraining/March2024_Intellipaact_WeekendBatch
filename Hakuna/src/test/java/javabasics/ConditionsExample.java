@@ -13,7 +13,7 @@ public class ConditionsExample {
         }
         else{
 
-            System.out.println("not equal");
+
         }
 
         String aa = "abc";
