@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pageobjects.HomePage;
+import pageobjects.ProductSpecifcPage;
 import pageobjects.ResultPage;
 
 import java.io.IOException;
@@ -13,10 +14,12 @@ public class ModifedAamzonStep {
     HomePage homePage;
     ResultPage resultPage;
 
+    ProductSpecifcPage productSpecifcPage;
     String productName;
     public ModifedAamzonStep(){
         homePage = new HomePage();
         resultPage = new ResultPage();
+        productSpecifcPage = new ProductSpecifcPage();
     }
 
     @Given("user search the product {string} and naviage to the result page")
@@ -34,9 +37,10 @@ public class ModifedAamzonStep {
     }
 
     @Given("user select the product")
-    public void userSelectTheProduct() {
+    public void userSelectTheProduct() throws InterruptedException {
 
         homePage.enterProductName("iphone").clickSearchIcon();
         resultPage.selectProduct(3);
+        productSpecifcPage.naviageToChildWindow().addToKart();
     }
 }

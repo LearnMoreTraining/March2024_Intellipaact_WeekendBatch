@@ -152,9 +152,11 @@ public class AmazonHomePage extends BaseCode {
     }
 
     @Given("user enters the username and password")
-    public void userEntersTheUsernameAndPassword() throws IOException {
+    public void userEntersTheUsernameAndPassword() throws IOException, InterruptedException {
 
         driver.findElement(By.cssSelector("#username")).sendKeys(ReadExcel.getCellValue("login",0,0));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        Thread.sleep(Duration.ofSeconds(20));
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys(ReadExcel.getCellValue("login",1,0));
 
     }
